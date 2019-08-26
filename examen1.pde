@@ -1,0 +1,59 @@
+class Exa {//reacion de clase
+  color c;
+float xpos;
+float ypos;
+float xspeed;//declaracion de artributos 
+
+  
+Exa(color tempC, float tempXpos,float tempYpos, float tempXspeed){//posicion temporales 
+c= tempC;
+xpos= tempXpos;
+ypos = tempYpos;
+xspeed= tempXspeed;//igualacion de posiciones 
+}
+//metodos 
+void display(){//lo que se va a mostrar
+float offset =90;
+rectMode(CENTER);//centrado
+//ex
+fill (250,128,114);//colot relleno
+line(xpos,ypos,8,50);//linea 
+point(xpos,ypos);//punto
+point(ypos ,ypos);// punto
+rect(xpos,ypos,100,50);
+fill(240,230,140);
+ellipse(xpos,ypos,50,50);
+
+}
+void drive(){
+  xpos+= xspeed;
+  if(xpos>width){//codicional
+  xpos=0;
+}
+  }
+}
+  Exa myExa;
+  Exa myExa02;
+  float z;
+  void setup(){
+    size(1000,1000);//tamaño de la pantalla
+  z= random(0,width);
+   
+    myExa= new Exa(color(200,0,0),width/3,500,7);//se indica tamaño posicion y color
+    myExa02= new Exa(color (0,0,200),width/5,250,10);
+
+  }
+  int linea=27;
+  void draw(){
+    background  (0,250,154);
+    myExa.drive();// llamar drive
+    myExa.display();//llamanor a display 
+    myExa02.drive();
+    myExa02.display();
+    line(0,linea,width,linea);
+linea=linea+2;//moviento de linea 
+}
+
+  
+    
+    
